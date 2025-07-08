@@ -3,86 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>홈페이지</title>
-    <link href="style/style.css" rel="stylesheet" type="text/css" />
-
-
+    <title>연구실 홈페이지</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet"/>
+    <link href="style/style.css" rel="stylesheet" type="text/css"/>
+ 
 </head>
 <body>
-    <!-- 헤더 영역 -->
+    <!-- 상단 유틸리티 바 -->
+    <!-- <div class="top-bar">
+        <div class="top-bar-container">
+            <a href="#">로그인</a>
+            <a href="#">사이트맵</a>
+            <a href="#">서강대학교</a>
+        </div>
+    </div> -->
+
+    <!-- 메인 헤더 -->
     <header class="header">
         <div class="header-container">
-            <div class="logo">
-                <img src="logo.jpg" alt="로고" />
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="logo.jpg" alt="연구실 로고" />
+                </div>
+                <div class="lab-title">Bigdata Processing & DB LAB</div>
             </div>
-            <div class="site-title">홈페이지 이름</div>
             <div class="school-logo">
-                <img src="school-logo.jpg" alt="학교로고" />
+                <img src="school-logo.jpg" alt="학교 로고" />
             </div>
         </div>
     </header>
 
-    <!-- 네비게이션 영역 -->
-    <nav class="navigation">
+    <!-- 메인 네비게이션 -->
+    <nav class="main-nav">
         <div class="nav-container">
-            <div class="nav-item">연구실소개</div>
-            <div class="nav-item">교수소개</div>
-            <div class="nav-item">멤버소개</div>
-            <div class="nav-item">졸업생</div>
+            <div class="nav-item"><a href=lab.html>연구실소개</a></div>
+            <div class="nav-item"><a href=professor.html>교수소개</a></div>
+            <div class="nav-item"><a href=members.html>멤버소개</a></div>
+            <!-- <div class="nav-item">졸업생</div> -->
+            <div class="nav-item"><a href=research.html>연구</a></div>
+            <div class="nav-item"><a href=publish.html>논문</a></div>
+            <div class="nav-item"><a href=gallery.html>갤러리</a></div>
         </div>
     </nav>
 
-    <!-- 메인 콘텐츠 영역 -->
-    <main class="main-content">
-        <section class="photo-section">
-            <img src="main-photo.jpg" alt="메인 사진" />
-            <div class="dots">
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-                <div class="dot"></div>
-            </div>
-        </section>
-    </main>
+    <!-- 메인 이미지 -->
+    <section class="hero-section">
+        <img src="main-photo.jpg" alt="연구실 메인 이미지" class="hero-image" />
+        <div class="hero-overlay"></div>
+    </section>
 
-    <!-- 푸터 영역 -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-info">
-                <h3>학교주소</h3>
-                <p>서울특별시 강남구 테헤란로 123길 45</p>
+    <!-- 메인 컨텐츠 -->
+    <main class="content-section">
+        <h1 class="lab-title-main">Bigdata Processing & DB LAB</h1>
+        
+        <div class="content-grid">
+            <!-- About Us 섹션 -->
+            <div class="about-section">
+                <h2>About Us</h2>
+                
+                <img src="team-photo.jpg" alt="연구실 단체사진" class="team-photo" />
+                
+                <div class="research-areas">
+                    <h3>연구분야</h3>
+                    <p class="research-description">
+                        Research Areas of Bigdata Processing & DB LAB:
+                    </p>
+                    <ul class="research-list">
+                        <li>Vector Database and Spatial Database</li>
+                        <li>Social Data Analysis and Deep Clustering</li>
+                        <li>Big Data Processing and Analytics</li>
+                        <li>Machine Learning and Data Mining</li>
+                        <li>Database Systems and Query Optimization</li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-info">
-                <h3>전화번호</h3>
-                <p>02-1234-5678</p>
-            </div>
-            <div class="footer-info">
-                <h3>이메일</h3>
-                <p>info@example.com</p>
-            </div>
-            <div class="footer-bottom">
-                <p>홈페이지 안내와 정보</p>
-                <p>&copy; 2025 홈페이지. All rights reserved.</p>
+
+            <!-- 연구실 정보 -->
+            <div class="lab-info">
+                <h3>연구실</h3>
+                <div class="info-item">
+                    <span class="label">위치</span>
+                    <span class="value">Room AS 811(Prof. Sungwon Jung),<br>Room AS 809, 816</span>
+                </div>
+                
+                <div class="info-item">
+                    <span class="label">연락처</span>
+                    <span class="value">
+                        E-mail<br>
+                        yongdamkim@sogang.ac.kr (대표학생)<br><br>
+                        전화: 02-705-8969<br>
+                        팩스: 02-712-0121
+                    </span>
+                </div>
             </div>
         </div>
-    </footer>
+    </main>
 
     <script>
         // 네비게이션 클릭 이벤트
         document.querySelectorAll('.nav-item').forEach(item => {
             item.addEventListener('click', function() {
-                alert('선택된 메뉴: ' + this.textContent);
+                // 기존 활성 상태 제거
+                document.querySelectorAll('.nav-item').forEach(nav => {
+                    nav.style.color = '#333';
+                    nav.style.borderBottomColor = 'transparent';
+                });
+                
+                // 클릭된 아이템 활성화
+                this.style.color = '#007bff';
+                this.style.borderBottomColor = '#007bff';
+                
+                console.log('선택된 메뉴:', this.textContent);
             });
         });
 
-        // 학교로고 클릭 이벤트
-        document.querySelector('.school-logo').addEventListener('click', function() {
-            alert('학교로고 클릭됨');
+        // 로고 클릭 이벤트
+        document.querySelector('.logo').addEventListener('click', function() {
+            console.log('연구실 로고 클릭됨');
         });
 
-        // 사진 영역 클릭 이벤트
-        document.querySelector('.photo-section').addEventListener('click', function() {
-            alert('메인 이미지 영역을 클릭하셨습니다.');
+        // 학교 로고 클릭 이벤트
+        document.querySelector('.school-logo').addEventListener('click', function() {
+            console.log('학교 로고 클릭됨');
+        });
+
+        // 상단 메뉴 클릭 이벤트
+        document.querySelectorAll('.top-bar a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('상단 메뉴 클릭:', this.textContent);
+            });
+        });
+
+        // 스크롤 시 헤더 그림자 효과
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 0) {
+                header.style.boxShadow = '0 4px 12px rgba(0,0,0,0.15)';
+            } else {
+                header.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
+            }
+        });
+
+        // 이미지 로드 에러 처리
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+            });
         });
     </script>
 </body>
